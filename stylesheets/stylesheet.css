@@ -7,7 +7,9 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #606c71; }
+  color: #363642;
+  background-color: #DEDEDE;
+   }
 
 a {
   color: #1e6bb8;
@@ -18,9 +20,9 @@ a {
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(249, 249, 245, 0.7);
+  background-color: rgba(249, 249, 245, 0.08);
+  border-color: rgba(249, 249, 245, 0.2);
   border-style: solid;
   border-width: 1px;
   border-radius: 0.3rem;
@@ -54,7 +56,7 @@ a {
       margin-left: 0; } }
 
 .page-header {
-  color: #fff;
+  color: #F9F9F5;
   text-align: center;
   background-color: #652428;
   //background-image: linear-gradient(120deg, #155799, #159957); 
@@ -89,9 +91,11 @@ a {
     font-size: 1.75rem; } }
 
 .project-tagline {
+  color: #F9F9F5;
   margin-bottom: 2rem;
   font-weight: normal;
-  opacity: 0.7; }
+  opacity: 0.7; 
+  }
 
 @media screen and (min-width: 64em) {
   .project-tagline {
@@ -113,7 +117,7 @@ a {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
-  color: #159957; }
+  color: #588BA9; }
 .main-content p {
   margin-bottom: 1em; }
 .main-content code {
