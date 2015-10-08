@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: 
+Disallow: /visual_resume.pdf
+Disallow: /basic_resume.pdf
+Disallow: /portfolio.pdf
