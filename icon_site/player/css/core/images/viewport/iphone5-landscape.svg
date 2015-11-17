@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="mobile-devices.FW" viewBox="0 0 802 381" style="background-color:#ffffff00" version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+	x="0px" y="0px" width="802px" height="381px"
+>
+	<defs>
+		<linearGradient id="gradient1" x1="6" y1="188" x2="802" y2="188" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#333333" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#333333" stop-opacity="1" offset="99.4444%"/>
+		</linearGradient>
+		<linearGradient id="gradient2" x1="396" y1="125.5" x2="1275" y2="495.5" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#333333" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient3" x1="70.26470947265625" y1="188.443603515625" x2="81.92648315429688" y2="188.443603515625" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#333333" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="22.2222%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="51.6667%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient4" x1="70.26470947265625" y1="188" x2="81.73529052734375" y2="188" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#1e1e1e" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#303030" stop-opacity="1" offset="34.4444%"/>
+			<stop stop-color="#303030" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient5" x1="37.993988037109375" y1="187.64990234375" x2="52.582000732421875" y2="187.64990234375" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#1e1e1e" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#303030" stop-opacity="1" offset="34.4444%"/>
+			<stop stop-color="#303030" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient6" x1="717.6961669921875" y1="154.9029541015625" x2="796.9358520507812" y2="225.759033203125" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#333333" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient7" x1="492.358154296875" y1="262.5684814453125" x2="1567.5242919921875" y2="373.73858642578125" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#ffffff" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#ffffff" stop-opacity="0" offset="98.3333%"/>
+		</linearGradient>
+	</defs>
+	<g id="Phone">
+		<rect y="0.5" x="6" width="796" height="375" fill="url(#gradient1)" rx="60" ry="60"/>
+		<rect y="3.5" x="8" width="790" height="370" stroke="#5f6161" stroke-width="2" fill="url(#gradient2)" rx="55" ry="55"/>
+		<g opacity="0.302">
+			<rect y="156.5" x="71.0295" width="11.4705" height="63" fill="#999999" rx="7" ry="7"/>
+			<rect y="156.5" x="69.5" width="11.4707" height="63" fill="#000000" rx="7" ry="7"/>
+		</g>
+		<rect y="156.5" x="70.2648" width="11.4706" height="63" fill="url(#gradient3)" rx="7" ry="7"/>
+		<rect y="156.5" x="70.2648" width="11.4706" height="63" fill="url(#gradient4)" rx="7" ry="7"/>
+		<g opacity="0.502">
+			<path id="Ellipse" d="M 46.288 194.944 C 42.2596 194.944 38.994 191.6785 38.994 187.65 C 38.994 183.6216 42.2596 180.356 46.288 180.356 C 50.3164 180.356 53.582 183.6216 53.582 187.65 C 53.582 191.6785 50.3164 194.944 46.288 194.944 Z" fill="#999999"/>
+			<path id="Ellipse2" d="M 44.288 194.944 C 40.2596 194.944 36.994 191.6785 36.994 187.65 C 36.994 183.6216 40.2596 180.356 44.288 180.356 C 48.3164 180.356 51.582 183.6216 51.582 187.65 C 51.582 191.6785 48.3164 194.944 44.288 194.944 Z" fill="#000000"/>
+		</g>
+		<path id="Ellipse3" d="M 45.288 194.944 C 41.2596 194.944 37.994 191.6785 37.994 187.65 C 37.994 183.6216 41.2596 180.356 45.288 180.356 C 49.3164 180.356 52.582 183.6216 52.582 187.65 C 52.582 191.6785 49.3164 194.944 45.288 194.944 Z" fill="url(#gradient5)"/>
+		<path id="Ellipse4" d="M 744.47 223.078 C 724.9033 223.078 709.042 207.2166 709.042 187.65 C 709.042 168.0834 724.9033 152.2219 744.47 152.2219 C 764.0367 152.2219 779.8979 168.0834 779.8979 187.65 C 779.8979 207.2166 764.0367 223.078 744.47 223.078 Z" stroke="#5f6161" stroke-width="2" fill="url(#gradient6)"/>
+		<g>
+			<path d="M 732 195.29 L 732 180.71 C 732 177.8325 734.3326 175.5 737.21 175.5 L 751.79 175.5 C 754.6675 175.5 757 177.8325 757 180.71 L 757 195.29 C 757 198.1675 754.6675 200.5 751.79 200.5 L 737.21 200.5 C 734.3326 200.5 732 198.1675 732 195.29 Z" stroke="#666666" stroke-width="2" fill="none"/>
+		</g>
+		<rect opacity="0.502" y="28" x="121.5" width="569" height="321" stroke="#5f5f5f" stroke-width="1" fill="#333333"/>
+		<path d="M 114.5 377.5 L 114.5 377.5 C 114.5 375.8431 114.5 375.5 114.5 375.5 L 150.5 375.5 C 150.5 375.5 150.5 375.8431 150.5 377.5 L 150.5 377.5 C 150.5 379.1569 149.1569 380.5 147.5 380.5 L 117.5 380.5 C 115.8431 380.5 114.5 379.1569 114.5 377.5 Z" fill="#666666"/>
+		<path d="M 189.5 377.5 L 189.5 377.5 C 189.5 375.8431 189.5 375.5 189.5 375.5 L 218.5 375.5 C 218.5 375.5 218.5 375.8431 218.5 377.5 L 218.5 377.5 C 218.5 379.1569 217.1569 380.5 215.5 380.5 L 192.5 380.5 C 190.8431 380.5 189.5 379.1569 189.5 377.5 Z" fill="#666666"/>
+		<path d="M 256.5 377.5 L 256.5 377.5 C 256.5 375.8431 256.5 375.5 256.5 375.5 L 285.5 375.5 C 285.5 375.5 285.5 375.8431 285.5 377.5 L 285.5 377.5 C 285.5 379.1569 284.1569 380.5 282.5 380.5 L 259.5 380.5 C 257.8431 380.5 256.5 379.1569 256.5 377.5 Z" fill="#666666"/>
+		<path d="M 3.5 62.5 L 4.5 62.5 C 6.1569 62.5 5.5 62.5 5.5 62.5 L 5.5 123.5 C 5.5 123.5 5.1569 123.5 3.5 123.5 L 3.5 123.5 C 1.8431 123.5 0.5 122.1569 0.5 120.5 L 0.5 65.5 C 0.5 63.8431 1.8431 62.5 3.5 62.5 Z" fill="#666666"/>
+	</g>
+	<path opacity="0.102" d="M 802 312.98 L 802 66.5098 C 802 30.3293 772.6315 1 736.4026 1 L 400 1 C 400 145.3895 453.226 273.1405 520.945 375.5 L 739.48 375.5 C 774.0093 375.5 802 347.5093 802 312.98 Z" fill="url(#gradient7)"/>
+	<g id="Top%20Bar">
+		<path d="M 122 29 L 690 29 L 690 49 L 122 49 L 122 29 Z" fill="#1f1f1f"/>
+		<path id="Batery" opacity="0.2" d="M 681 40 L 681 37 L 683 37 L 683 40 L 681 40 ZM 681 32 L 662 32 L 662 45 L 681 45 L 681 42 L 685 42 L 685 35 L 681 35 L 681 32 ZM 679 34 L 679 43 L 664 43 L 664 34 L 679 34 ZM 665 35 L 665 42 L 670 42 L 670 35 L 665 35 Z" fill="#ffffff"/>
+		<g id="Signal" opacity="0.2">
+			<path d="M 130 40 L 130 44 L 132 44 L 132 40 L 130 40 ZM 134 39 L 134 44 L 136 44 L 136 39 L 134 39 ZM 138 37 L 138 44 L 140 44 L 140 37 L 138 37 ZM 142 36 L 142 44 L 144 44 L 144 36 L 142 36 ZM 146 33 L 146 44 L 148 44 L 148 33 L 146 33 Z" fill="#ffffff"/>
+		</g>
+	</g>
+</svg>

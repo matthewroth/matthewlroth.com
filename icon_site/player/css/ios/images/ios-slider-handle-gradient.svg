@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="" viewBox="0 0 22 22" style="background-color:#ffffff00" version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+	x="0px" y="0px" width="22px" height="22px"
+>
+	<defs>
+		<linearGradient id="gradient1" x1="11.0625" y1="2" x2="11.0625" y2="21.125" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#000000" stop-opacity="0.2" offset="0%"/>
+			<stop stop-color="#000000" stop-opacity="0" offset="50%"/>
+			<stop stop-color="#000000" stop-opacity="0" offset="97.7778%"/>
+		</linearGradient>
+	</defs>
+	<path id="Ellipse" d="M 1 11 C 1 5.4771 5.4771 1 11 1 C 16.5229 1 21 5.4771 21 11 C 21 16.5229 16.5229 21 11 21 C 5.4771 21 1 16.5229 1 11 Z" fill="#ebebeb" />
+	<path id="Ellipse2" d="M 2 11 C 2 6.0294 6.0294 2 11 2 C 15.9706 2 20 6.0294 20 11 C 20 15.9706 15.9706 20 11 20 C 6.0294 20 2 15.9706 2 11 Z" fill="url(#gradient1)"/>
+</svg>

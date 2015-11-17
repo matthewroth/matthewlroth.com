@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="mobile-devices.FW" viewBox="0 0 715 367" style="background-color:#ffffff00" version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+	x="0px" y="0px" width="715px" height="367px"
+>
+	<defs>
+		<linearGradient id="gradient1" x1="6" y1="175" x2="802" y2="175" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#333333" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#333333" stop-opacity="1" offset="99.4444%"/>
+		</linearGradient>
+		<linearGradient id="gradient2" x1="396" y1="111.5" x2="1275" y2="481.5" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#333333" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient3" x1="66.26470947265625" y1="182.443603515625" x2="77.92648315429688" y2="182.443603515625" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#333333" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="22.2222%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="51.6667%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient4" x1="66.26470947265625" y1="182" x2="77.73529052734375" y2="182" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#1e1e1e" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#303030" stop-opacity="1" offset="34.4444%"/>
+			<stop stop-color="#303030" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient5" x1="64.49398803710938" y1="254.14990234375" x2="79.08200073242188" y2="254.14990234375" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#1e1e1e" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#303030" stop-opacity="1" offset="34.4444%"/>
+			<stop stop-color="#303030" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient6" x1="628.1961669921875" y1="147.4029541015625" x2="707.435791015625" y2="218.259033203125" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#333333" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#666666" stop-opacity="1" offset="98.8889%"/>
+		</linearGradient>
+		<linearGradient id="gradient7" x1="415.1416931152344" y1="253.13943481445312" x2="1452.8642578125" y2="360.3020935058594" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#ffffff" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#ffffff" stop-opacity="0" offset="98.3333%"/>
+		</linearGradient>
+	</defs>
+	<g id="Phone">
+		<rect y="0.5" x="5.5" width="708" height="362" fill="url(#gradient1)" rx="49.9999" ry="49.9999"/>
+		<rect y="3.5" x="7.5" width="702" height="356" stroke="#5f6161" stroke-width="2" fill="url(#gradient2)" rx="47" ry="47"/>
+		<g>
+			<g opacity="0.302">
+				<rect y="150.5" x="67.0295" width="11.4705" height="63" fill="#999999" rx="7" ry="7"/>
+				<rect y="150.5" x="65.5" width="11.4707" height="63" fill="#000000" rx="7" ry="7"/>
+			</g>
+			<rect y="150.5" x="66.2648" width="11.4706" height="63" fill="url(#gradient3)" rx="7" ry="7"/>
+			<rect y="150.5" x="66.2648" width="11.4706" height="63" fill="url(#gradient4)" rx="7" ry="7"/>
+		</g>
+		<g>
+			<g opacity="0.502">
+				<path id="Ellipse" d="M 72.788 261.444 C 68.7596 261.444 65.494 258.1785 65.494 254.15 C 65.494 250.1216 68.7596 246.856 72.788 246.856 C 76.8164 246.856 80.082 250.1216 80.082 254.15 C 80.082 258.1785 76.8164 261.444 72.788 261.444 Z" fill="#999999"/>
+				<path id="Ellipse2" d="M 70.788 261.444 C 66.7596 261.444 63.494 258.1785 63.494 254.15 C 63.494 250.1216 66.7596 246.856 70.788 246.856 C 74.8164 246.856 78.082 250.1216 78.082 254.15 C 78.082 258.1785 74.8164 261.444 70.788 261.444 Z" fill="#000000"/>
+			</g>
+			<path id="Ellipse3" d="M 71.788 261.444 C 67.7596 261.444 64.494 258.1785 64.494 254.15 C 64.494 250.1216 67.7596 246.856 71.788 246.856 C 75.8164 246.856 79.082 250.1216 79.082 254.15 C 79.082 258.1785 75.8164 261.444 71.788 261.444 Z" fill="url(#gradient5)"/>
+		</g>
+		<path id="Ellipse4" d="M 654.97 215.578 C 635.4033 215.578 619.542 199.7166 619.542 180.15 C 619.542 160.5834 635.4033 144.7219 654.97 144.7219 C 674.5366 144.7219 690.3979 160.5834 690.3979 180.15 C 690.3979 199.7166 674.5366 215.578 654.97 215.578 Z" stroke="#5f6161" stroke-width="2" fill="url(#gradient6)"/>
+		<path d="M 642.5 187.79 L 642.5 173.21 C 642.5 170.3325 644.8326 168 647.71 168 L 662.29 168 C 665.1675 168 667.5 170.3325 667.5 173.21 L 667.5 187.79 C 667.5 190.6675 665.1675 193 662.29 193 L 647.71 193 C 644.8326 193 642.5 190.6675 642.5 187.79 Z" stroke="#666666" stroke-width="2" fill="none"/>
+		<rect opacity="0.502" y="21" x="121" width="481" height="321" stroke="#5f5f5f" stroke-width="1" fill="#333333"/>
+		<path d="M 76 364 L 76 364 C 76 362.3431 76 362 76 362 L 112 362 C 112 362 112 362.3431 112 364 L 112 364 C 112 365.6569 110.6569 367 109 367 L 79 367 C 77.3431 367 76 365.6569 76 364 Z" fill="#666666"/>
+		<path d="M 141 364 L 141 364 C 141 362.3431 141 362 141 362 L 170 362 C 170 362 170 362.3431 170 364 L 170 364 C 170 365.6569 168.6569 367 167 367 L 144 367 C 142.3431 367 141 365.6569 141 364 Z" fill="#666666"/>
+		<path d="M 214 364 L 214 364 C 214 362.3431 214 362 214 362 L 243 362 C 243 362 243 362.3431 243 364 L 243 364 C 243 365.6569 241.6569 367 240 367 L 217 367 C 215.3431 367 214 365.6569 214 364 Z" fill="#666666"/>
+		<path d="M 3 50 L 4 50 C 5.6569 50 5 50 5 50 L 5 111 C 5 111 4.6569 111 3 111 L 3 111 C 1.3431 111 0 109.6569 0 108 L 0 53 C 0 51.3431 1.3431 50 3 50 Z" fill="#666666"/>
+	</g>
+	<path opacity="0.102" d="M 714 301.7337 L 714 64.1483 C 717 18 689 2 650.6871 1 L 326 1 C 326 140.1845 377.3723 263.3303 442.733 362 L 653.6573 362 C 698 364 714 335.0183 714 301.7337 Z" fill="url(#gradient7)"/>
+	<g id="Top%20Bar">
+		<rect y="22" x="122" width="479" height="20" fill="#1f1f1f"/>
+		<path id="Batery" opacity="0.2" d="M 592 33 L 592 30 L 594 30 L 594 33 L 592 33 ZM 592 25 L 573 25 L 573 38 L 592 38 L 592 35 L 596 35 L 596 28 L 592 28 L 592 25 ZM 590 27 L 590 36 L 575 36 L 575 27 L 590 27 ZM 576 28 L 576 35 L 581 35 L 581 28 L 576 28 Z" fill="#ffffff"/>
+		<g id="Signal" opacity="0.2">
+			<path d="M 130 33 L 130 37 L 132 37 L 132 33 L 130 33 ZM 134 32 L 134 37 L 136 37 L 136 32 L 134 32 ZM 138 30 L 138 37 L 140 37 L 140 30 L 138 30 ZM 142 29 L 142 37 L 144 37 L 144 29 L 142 29 ZM 146 26 L 146 37 L 148 37 L 148 26 L 146 26 Z" fill="#ffffff"/>
+		</g>
+	</g>
+</svg>
