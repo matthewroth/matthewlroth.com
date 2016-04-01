@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Energy Consumption</title>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.js?2.8.0"></script>
+    <link type="text/css" rel="stylesheet" href="button.css"/>
+    <script type="text/javascript" src="stream-chart.js"></script>
+    <script type="text/javascript" src="stream_layers.js"></script>
+</head>
+<body style="background-color: gray">
+<div id="chart">
+    <button class="first last" onclick="javascript:location.reload(true)">
+        Change Color
+    </button>
+    <a href= "description.html" style=" color: silver"> Description</a>
+    <br/>
+    <button class="now">Now (Real Data)</button>
+    <button class="sixh">+6 hours</button>
+    <button class="twelveh">+12 hours </button>
+</div>
+
+<script>
+    var n = 200, // number of layers
+    m = 10000; // number of samples per layer
+
+var colors = d3.range(n).map(function() { return d3.interpolateRgb("rgb(255,215,0)","rgb(255,0,0)")(Math.random()); });
+ 
+change("data.csv"); 
+
+d3.selectAll(".now")
+    .on("click", function(){
+        d3.selectAll("svg").remove();
+        change("data.csv");
+    });
+
+d3.selectAll(".sixh")
+    .on("click", function(){
+   d3.selectAll("svg").remove();
+    change("data2.csv");
+    });
+
+d3.selectAll(".twelveh")
+    .on("click", function(){
+        d3.selectAll("svg").remove();
+        change("data3.csv");
+    }); 
+ 
+
+function change(dpath) {
+    var path = dpath;
+
+var streamgraph = streamgraphChart()
+        .margin({top: 10, right: 10, bottom: 10, left: 10})
+        .color(function(d, i) { return colors[i]; }) // use same colors for both data sets
+        .transitionDuration(1500);
+d3.text(path, function(text) {
+    var data = [];
+    d3.csv.parseRows(text).forEach(function(row, idx) {
+        row.forEach(function(value, layer) {
+          if (typeof data[layer] === 'undefined') data[layer] = [];
+          data[layer].push({ x : idx, y : +value });
+        });
+    });
+    console.log(data);
+    d3.select("#chart")
+            .datum(data)
+           .call(streamgraph);
+  })
+        
+};
+</script>
+</body>
+</html>
