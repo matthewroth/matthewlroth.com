@@ -1,0 +1,38 @@
+<svg viewBox="0 0 600 420" version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+	width="600px" height="420px"
+>
+	<defs>
+		<linearGradient id="gradient" x1="0" y1="1" x2="0" y2="0">
+      		<stop stop-color="#fff" offset="0%" 	stop-opacity="0"  />
+      		<stop stop-color="#fff" offset="50%" 	stop-opacity="0.15"  />
+      		<stop stop-color="#fff" offset="50.1%" 	stop-opacity="0.25"  />
+      		<stop stop-color="#fff" offset="100%" stop-opacity="0.4" />
+    	</linearGradient>
+
+	<linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1" >
+     		<stop stop-color="#9CA4B8" offset="0%"/>
+     		<stop stop-color="#434554" offset="49.4%"/>
+     		<stop stop-color="#222331" offset="49.5%"/>
+    	</linearGradient>
+
+	</defs>
+	
+	<g>
+    <rect y="0" x="0" width="600" height="40" fill="#454545"/>
+	  <rect y="0" x="0" width="600" height="40" fill="url(#gradient)"/>
+
+	  <rect y="40" x="0" width="600" height="160" fill="rgb(34, 35, 49)"/>
+	  <rect y="40" x="0" width="600" height="170" fill="url(#gradient2)"/>
+  </g>
+  
+  <g transform="translate(0, 210)">
+    <rect y="0" x="0" width="600" height="34" fill="#454545"/>
+	  <rect y="0" x="0" width="600" height="34" fill="url(#gradient)"/>
+
+	  <rect y="34" x="0" width="600" height="160" fill="rgb(34, 35, 49)"/>
+	  <rect y="34" x="0" width="600" height="170" fill="url(#gradient2)"/>
+  </g>
+  
+  
+</svg>

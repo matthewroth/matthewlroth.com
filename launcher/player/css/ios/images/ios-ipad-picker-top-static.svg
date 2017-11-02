@@ -1,0 +1,30 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="334" height="186">
+  <defs>
+    <linearGradient id="ios-popover-top-sharp-gradient" x1="0" y1="20" x2="0" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0.5" offset="0%"/>
+      <stop stop-color="#fff" stop-opacity="0.1" offset="50%"/>
+      <stop stop-color="#fff" stop-opacity="0" offset="50.1%"/>
+      <stop stop-color="#fff" stop-opacity="0" offset="100%"/>
+    </linearGradient>
+
+    <linearGradient id="ios-popover-bottom-sharp-gradient" x1="0" y1="0" x2="0" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0.5" offset="0%"/>
+      <stop stop-color="#fff" stop-opacity="0.1" offset="50%"/>
+      <stop stop-color="#fff" stop-opacity="0" offset="50.1%"/>
+      <stop stop-color="#fff" stop-opacity="0" offset="100%"/>
+    </linearGradient>
+
+    <style type="text/css">
+      <![CDATA[ 
+	    .gradient {
+                fill    : url(#ios-popover-top-sharp-gradient);
+                stroke: rgba(0, 0, 0, 0.75);
+            }
+            .fill{fill:rgb(8, 21, 48);}            
+      	]]>
+    </style>
+  </defs>
+
+  <path class="fill" d="M8.5,20.5H147l20-20l20,20h138.5c5.333,0,8,2.667,8,8v149c0,5.334-2.667,8-8,8H8.5c-5.333,0-8-2.666-8-8v-149C0.5,23.167,3.167,20.5,8.5,20.5z" shape-rendering="geometricPrecision"></path>
+  <path class="gradient" d="M8.5,20.5H147l20-20l20,20h138.5c5.333,0,8,2.667,8,8v149c0,5.334-2.667,8-8,8H8.5c-5.333,0-8-2.666-8-8v-149C0.5,23.167,3.167,20.5,8.5,20.5z" shape-rendering="geometricPrecision"></path>
+</svg>

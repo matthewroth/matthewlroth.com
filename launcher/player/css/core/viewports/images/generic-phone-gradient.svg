@@ -1,0 +1,15 @@
+<svg id="generic-phone.EXPORT.FW" viewBox="0 0 2000 2000"  version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+	x="0px" y="0px" width="2000px" height="2000px"
+>
+	<defs>
+		<linearGradient id="gradient1" x1="1259.8612060546875" y1="1149.850341796875" x2="6950.82763671875" y2="1637.277099609375" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#ffffff" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#ffffff" stop-opacity="0" offset="98.3333%"/>
+		</linearGradient>
+	</defs>
+	<g>
+		<path d="M 3.0063 57.4342 L 3.0063 1949.5028 C 3.0063 1949.5028 0.368 1996.9999 102.7536 1996.9999 L 1897.2527 1996.9999 C 1999.6383 1996.9999 1997 1949.5028 1997 1949.5028 L 1997 57.4342 C 1997 57.4342 1999.6383 4 1897.2527 4 L 102.7536 4 C 0.368 4 3.0063 57.4342 3.0063 57.4342 Z" fill="none"/>
+		<path id="Glow" opacity="0.102" d="M 771 3 L 1903.7305 2.4067 C 2019.254 2.4067 1999 79.4224 1999 96.2696 L 1999 1936.641 C 1999 2030.1978 771 1196.9697 771 3 Z" fill="url(#gradient1)"/>
+	</g>
+</svg>

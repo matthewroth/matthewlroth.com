@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="5000" height="44" version="1.1" >
+
+  <defs>
+		
+    <linearGradient id="ios-smooth-gradient-state-default" x1="0" y1="1" x2="0" y2="0">
+      <stop stop-color="#fff" offset="0%" stop-opacity="0.1"/>
+      <stop stop-color="#fff" offset="30%" stop-opacity="0.3"/>
+      <stop stop-color="#fff" offset="80%" stop-opacity="0.8"/>
+      <stop stop-color="#fff" offset="100%" stop-opacity="0.93"/>
+    </linearGradient>
+
+    <linearGradient id="ios-smooth-gradient-state-hover" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fff" stop-opacity="0.55" offset="0%"/>
+      <stop stop-color="#fff" stop-opacity="0.1" offset="50%"/>
+      <stop stop-color="#fff" stop-opacity="0" offset="83.8889%"/>
+      <stop stop-color="#fff" stop-opacity="0" offset="98.8889%"/>
+    </linearGradient>
+
+    <linearGradient id="ios-smooth-gradient-state-active" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fff" stop-opacity="0.45" offset="0%"/>
+      <stop stop-color="#000" stop-opacity="0.15" offset="50%"/>
+      <stop stop-color="#000" stop-opacity="0.15" offset="83.8889%"/>
+      <stop stop-color="#000" stop-opacity="0.10" offset="98.8889%"/>
+    </linearGradient>
+
+    <linearGradient id="ios-button-bar-item-state-default" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-opacity="0.1" stop-color="#fff"/>
+      <stop offset="0.5" stop-opacity="0.5" stop-color="#fff"/>
+      <stop offset="1" stop-opacity="1" stop-color="#fff"/>
+    </linearGradient>
+	</defs>
+
+  
+
+  <rect y="0" x="0" width="4997" height="44" rx="10" ry="10" fill="url(#ios-button-bar-item-state-default)" style="opacity:.8"/>
+</svg>

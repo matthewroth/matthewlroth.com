@@ -1,0 +1,15 @@
+<svg id="generic-tablet.FW" viewBox="0 0 4000 4003" version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+	x="0px" y="0px" width="8000px" height="8003px"
+>
+	<defs>
+		<linearGradient id="gradient1" x1="2256.861328125" y1="1149.850341796875" x2="7947.82763671875" y2="1637.277099609375" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#ffffff" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#ffffff" stop-opacity="0" offset="98.3333%"/>
+		</linearGradient>
+	</defs>
+		<g>
+		<path d="M 44.6799 3 L 3954.9609 3 C 3977.9805 3 3996.6404 21.6604 3996.6404 44.6798 L 3996.6404 3958.3203 C 3996.6404 3981.3398 3977.9805 4000 3954.9609 4000 L 44.6799 4000 C 21.6604 4000 3 3981.3398 3 3958.3203 L 3 44.6798 C 3 21.6604 21.6604 3 44.6799 3 Z" fill="none"/>
+		<path id="Glow" opacity="0.102" d="M 1474.0289 0 L 3902.9133 3.5756 C 4018.4368 3.5756 3998.1829 80.5912 3998.1829 97.4384 L 3998.1829 3988.5488 C 3998.1829 4082.1057 1474.0289 2164.6895 1474.0289 0 Z" fill="url(#gradient1)"/>
+	</g>
+</svg>

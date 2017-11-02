@@ -1,0 +1,10 @@
+<svg viewBox="0 0 84 13" version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+	width="84px" height="13px"
+>
+	<g>
+		<path d="M 1 1 L 12 12 L 72 12 L 83 1 L 1 1 Z" stroke="#505050" stroke-width="1" fill="#505050"/>
+		<path d="M 1 0 L 12 11 L 72 11 L 83 0 L 1 0 Z" fill="#393939"/>
+		<path d="M 4 3 L 12 11 L 72 11 L 80 3 L 4 3 Z" fill="#414141"/>
+	</g>
+</svg>
