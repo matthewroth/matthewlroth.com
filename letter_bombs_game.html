@@ -1,0 +1,820 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  #game-root {
+    font-family: 'Share Tech Mono', monospace;
+    background: #0a0e0a;
+    color: #c8f0c8;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: #ff4444;
+    text-shadow: 0 0 20px rgba(255,68,68,0.4);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    font-size: 11px;
+    color: #4a7a4a;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  .hud {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 18px;
+    align-items: center;
+  }
+
+  .hud-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .hud-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #4a7a4a;
+    text-transform: uppercase;
+  }
+
+  .hud-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    color: #c8f0c8;
+  }
+
+  .lives-display {
+    display: flex;
+    gap: 6px;
+  }
+
+  .life-icon {
+    font-size: 20px;
+    transition: all 0.3s;
+  }
+
+  .life-icon.lost {
+    filter: grayscale(1) opacity(0.3);
+  }
+
+  .board-wrap {
+    background: #0d140d;
+    border: 1px solid #1a3a1a;
+    padding: 12px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .board-wrap::before {
+    content: 'MINEFIELD';
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #2a5a2a;
+    background: #0a0e0a;
+    padding: 0 6px;
+  }
+
+  #board {
+    display: grid;
+    gap: 2px;
+  }
+
+  .cell {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #1a3a1a;
+    background: #111811;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: 700;
+    color: #c8f0c8;
+    transition: background 0.1s, border-color 0.1s;
+    position: relative;
+    user-select: none;
+  }
+
+  .cell:hover:not(.revealed):not(.flagged) {
+    background: #1a2e1a;
+    border-color: #2a5a2a;
+  }
+
+  .cell.revealed {
+    background: #080c08;
+    border-color: #0f200f;
+    cursor: default;
+  }
+
+  .cell.revealed.has-letter {
+    background: #0a1f0a;
+    border-color: #1a4a1a;
+    color: #88ff88;
+    font-size: 16px;
+  }
+
+  .cell.flagged {
+    background: #1a1000;
+    border-color: #554400;
+    color: #ffaa00;
+    cursor: pointer;
+  }
+
+  .cell.exploded {
+    background: #3a0000;
+    border-color: #aa0000;
+    animation: explode 0.5s ease-out;
+  }
+
+  .cell.safe-reveal {
+    animation: safe-flash 0.4s ease-out;
+  }
+
+  @keyframes explode {
+    0% { background: #ff4444; }
+    100% { background: #3a0000; }
+  }
+
+  @keyframes safe-flash {
+    0% { background: #003300; }
+    100% { background: #080c08; }
+  }
+
+  .n1 { color: #5599ff; }
+  .n2 { color: #55cc55; }
+  .n3 { color: #ff7755; }
+  .n4 { color: #aa55ff; }
+  .n5 { color: #ff4444; }
+  .n6 { color: #44cccc; }
+  .n7 { color: #ff99ff; }
+  .n8 { color: #aaaaaa; }
+
+  .puzzle-section {
+    width: 100%;
+    max-width: 500px;
+    background: #0d140d;
+    border: 1px solid #1a3a1a;
+    padding: 16px;
+    position: relative;
+    margin-bottom: 16px;
+  }
+
+  .puzzle-section::before {
+    content: 'WORD PUZZLE';
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #2a5a2a;
+    background: #0a0e0a;
+    padding: 0 6px;
+  }
+
+  .clue-area {
+    margin-bottom: 14px;
+  }
+
+  .clue-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #4a7a4a;
+    margin-bottom: 8px;
+  }
+
+  .letter-tiles {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .letter-tile {
+    width: 32px;
+    height: 38px;
+    border: 1px solid #2a5a2a;
+    background: #0a1f0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #88ff88;
+    font-weight: 700;
+    transition: all 0.3s;
+  }
+
+  .letter-tile.empty {
+    border-color: #1a3a1a;
+    color: #1a3a1a;
+    content: '?';
+  }
+
+  .letter-tile.burned {
+    background: #1a0000;
+    border-color: #440000;
+    color: #440000;
+  }
+
+  .category-line {
+    font-size: 11px;
+    color: #4a7a4a;
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .guess-area {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  #guess-input {
+    flex: 1;
+    background: #060e06;
+    border: 1px solid #2a5a2a;
+    color: #c8f0c8;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    padding: 8px 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    outline: none;
+  }
+
+  #guess-input:focus {
+    border-color: #44aa44;
+    box-shadow: 0 0 8px rgba(68,170,68,0.2);
+  }
+
+  #guess-btn {
+    background: #0a2a0a;
+    border: 1px solid #2a7a2a;
+    color: #88ff88;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 8px 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.15s;
+  }
+
+  #guess-btn:hover {
+    background: #1a4a1a;
+    border-color: #44aa44;
+  }
+
+  .msg-area {
+    height: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    color: #ffaa44;
+    text-align: center;
+  }
+
+  .msg-area.good { color: #44ff88; }
+  .msg-area.bad { color: #ff4444; }
+
+  .controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 11px;
+    color: #4a7a4a;
+  }
+
+  .flag-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #1a3a1a;
+    background: #0d140d;
+    transition: all 0.15s;
+    user-select: none;
+  }
+
+  .flag-toggle.active {
+    border-color: #ffaa00;
+    color: #ffaa00;
+    background: #1a1000;
+  }
+
+  #new-game-btn {
+    background: #0a0a2a;
+    border: 1px solid #2a2a7a;
+    color: #8888ff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.15s;
+  }
+
+  #new-game-btn:hover {
+    background: #1a1a4a;
+    border-color: #5555aa;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+
+  .overlay-box {
+    background: #0d140d;
+    border: 1px solid #2a5a2a;
+    padding: 32px 40px;
+    text-align: center;
+    max-width: 360px;
+  }
+
+  .overlay-box h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .overlay-box.win h2 { color: #44ff88; }
+  .overlay-box.lose h2 { color: #ff4444; }
+
+  .overlay-box p {
+    font-size: 13px;
+    color: #88aa88;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .overlay-box .word-reveal {
+    font-size: 22px;
+    letter-spacing: 6px;
+    color: #c8f0c8;
+    margin-bottom: 16px;
+  }
+
+  .overlay-box button {
+    background: #111;
+    border: 1px solid #44aa44;
+    color: #88ff88;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 10px 24px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .overlay-box button:hover {
+    background: #1a3a1a;
+  }
+
+  .scan-line {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+    pointer-events: none;
+    z-index: 200;
+  }
+
+  .mines-remaining {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    color: #ff6666;
+  }
+
+  .timer-val {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    color: #88ff88;
+  }
+</style>
+
+<div id="game-root">
+  <div class="scan-line"></div>
+  <h2 class="sr-only" style="position:absolute;left:-9999px">Letter Bombs — a minesweeper word puzzle game</h2>
+  <h1>Letter Bombs</h1>
+  <div class="subtitle">defuse the field · collect the letters · solve the word</div>
+
+  <div class="hud">
+    <div class="hud-item">
+      <div class="hud-label">Lives</div>
+      <div class="lives-display" id="lives-display"></div>
+    </div>
+    <div class="hud-item">
+      <div class="hud-label">Mines</div>
+      <div class="mines-remaining" id="mines-remaining">0</div>
+    </div>
+    <div class="hud-item">
+      <div class="hud-label">Time</div>
+      <div class="timer-val" id="timer">0:00</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="flag-toggle" id="flag-toggle" onclick="toggleFlagMode()">
+      <span id="flag-icon">🚩</span>
+      <span id="flag-label">flag mode: off</span>
+    </div>
+    <button id="new-game-btn" onclick="initGame()">new game</button>
+  </div>
+
+  <div class="board-wrap">
+    <div id="board"></div>
+  </div>
+
+  <div class="puzzle-section" id="puzzle-section">
+    <div class="clue-area">
+      <div class="clue-label">category</div>
+      <div class="category-line" id="category-line">—</div>
+      <div class="clue-label">revealed letters</div>
+      <div class="letter-tiles" id="letter-tiles"></div>
+    </div>
+    <div class="guess-area">
+      <input type="text" id="guess-input" placeholder="type your guess..." maxlength="20" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')submitGuess()">
+      <button id="guess-btn" onclick="submitGuess()">submit</button>
+    </div>
+    <div class="msg-area" id="msg-area"></div>
+  </div>
+
+  <div id="overlay-container"></div>
+</div>
+
+<script>
+const WORD_PUZZLES = [
+  { word: 'PYTHON', category: 'programming languages' },
+  { word: 'JUNGLE', category: 'natural environments' },
+  { word: 'CASTLE', category: 'historic structures' },
+  { word: 'OXYGEN', category: 'chemical elements' },
+  { word: 'SATURN', category: 'planets' },
+  { word: 'BRIDGE', category: 'engineering structures' },
+  { word: 'FALCON', category: 'birds of prey' },
+  { word: 'ORCHID', category: 'flowers' },
+  { word: 'BRONZE', category: 'materials and alloys' },
+  { word: 'MIRAGE', category: 'optical phenomena' },
+  { word: 'QUARTZ', category: 'minerals' },
+  { word: 'VIKING', category: 'historical peoples' },
+  { word: 'ZENITH', category: 'astronomical terms' },
+  { word: 'LAGOON', category: 'bodies of water' },
+  { word: 'COBALT', category: 'colors and elements' },
+];
+
+const COLS = 10, ROWS = 9, MINE_COUNT = 15;
+
+let board = [], puzzle = null, lives = 3, flagMode = false;
+let revealed = 0, flagged = new Set(), explodedCells = new Set();
+let gameOver = false, gameWon = false, timerInt = null, seconds = 0, started = false;
+let letterCells = [], revealedLetters = [];
+
+function initGame() {
+  clearInterval(timerInt);
+  seconds = 0;
+  started = false;
+  gameOver = false;
+  gameWon = false;
+  lives = 3;
+  flagMode = false;
+  flagged = new Set();
+  explodedCells = new Set();
+  revealed = 0;
+  revealedLetters = [];
+
+  puzzle = WORD_PUZZLES[Math.floor(Math.random() * WORD_PUZZLES.length)];
+  document.getElementById('overlay-container').innerHTML = '';
+  document.getElementById('timer').textContent = '0:00';
+  document.getElementById('flag-label').textContent = 'flag mode: off';
+  document.getElementById('flag-toggle').classList.remove('active');
+  document.getElementById('msg-area').textContent = '';
+  document.getElementById('msg-area').className = 'msg-area';
+  document.getElementById('guess-input').value = '';
+  document.getElementById('category-line').textContent = puzzle.category;
+
+  generateBoard();
+  renderBoard();
+  renderLives();
+  renderLetterTiles();
+  updateMinesDisplay();
+}
+
+function generateBoard() {
+  board = Array.from({length: ROWS}, () => Array(COLS).fill(null).map(() => ({
+    mine: false, revealed: false, flagged: false, letter: null, adjacentMines: 0
+  })));
+
+  let placed = 0;
+  while (placed < MINE_COUNT) {
+    const r = Math.floor(Math.random() * ROWS);
+    const c = Math.floor(Math.random() * COLS);
+    if (!board[r][c].mine) { board[r][c].mine = true; placed++; }
+  }
+
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      if (!board[r][c].mine) {
+        board[r][c].adjacentMines = countAdjacentMines(r, c);
+      }
+    }
+  }
+
+  letterCells = assignLetters();
+}
+
+function assignLetters() {
+  const safeCells = [];
+  for (let r = 0; r < ROWS; r++)
+    for (let c = 0; c < COLS; c++)
+      if (!board[r][c].mine) safeCells.push([r, c]);
+
+  const shuffled = safeCells.sort(() => Math.random() - 0.5);
+  const word = puzzle.word;
+  const picks = shuffled.slice(0, word.length);
+
+  picks.forEach(([r, c], i) => {
+    board[r][c].letter = word[i];
+  });
+
+  revealedLetters = Array(word.length).fill(null);
+  return picks;
+}
+
+function countAdjacentMines(r, c) {
+  let count = 0;
+  for (let dr = -1; dr <= 1; dr++)
+    for (let dc = -1; dc <= 1; dc++) {
+      const nr = r + dr, nc = c + dc;
+      if (nr >= 0 && nr < ROWS && nc >= 0 && nc < COLS && board[nr][nc].mine) count++;
+    }
+  return count;
+}
+
+function renderBoard() {
+  const el = document.getElementById('board');
+  el.style.gridTemplateColumns = `repeat(${COLS}, 38px)`;
+  el.innerHTML = '';
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.dataset.r = r;
+      cell.dataset.c = c;
+      cell.addEventListener('click', () => handleClick(r, c));
+      cell.addEventListener('contextmenu', e => { e.preventDefault(); handleRightClick(r, c); });
+      el.appendChild(cell);
+    }
+  }
+}
+
+function getCellEl(r, c) {
+  return document.querySelector(`[data-r="${r}"][data-c="${c}"]`);
+}
+
+function updateCellDisplay(r, c) {
+  const cell = board[r][c];
+  const el = getCellEl(r, c);
+  if (!el) return;
+
+  el.className = 'cell';
+  el.textContent = '';
+
+  if (cell.revealed) {
+    el.classList.add('revealed');
+    if (explodedCells.has(`${r},${c}`)) {
+      el.classList.add('exploded');
+      el.textContent = '💥';
+    } else if (cell.mine) {
+      el.textContent = '💣';
+    } else if (cell.letter) {
+      el.classList.add('has-letter');
+      el.textContent = cell.letter;
+    } else if (cell.adjacentMines > 0) {
+      el.classList.add(`n${cell.adjacentMines}`);
+      el.textContent = cell.adjacentMines;
+    }
+  } else if (cell.flagged) {
+    el.classList.add('flagged');
+    el.textContent = '🚩';
+  }
+}
+
+function handleClick(r, c) {
+  if (gameOver || gameWon) return;
+  const cell = board[r][c];
+  if (cell.revealed || cell.flagged) return;
+
+  if (flagMode) { handleRightClick(r, c); return; }
+
+  if (!started) {
+    started = true;
+    timerInt = setInterval(() => {
+      seconds++;
+      const m = Math.floor(seconds / 60), s = seconds % 60;
+      document.getElementById('timer').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+    }, 1000);
+  }
+
+  if (cell.mine) {
+    cell.revealed = true;
+    explodedCells.add(`${r},${c}`);
+    updateCellDisplay(r, c);
+    loseLife('bomb');
+  } else {
+    revealCell(r, c);
+    checkWinByBoard();
+  }
+}
+
+function handleRightClick(r, c) {
+  if (gameOver || gameWon) return;
+  const cell = board[r][c];
+  if (cell.revealed) return;
+
+  cell.flagged = !cell.flagged;
+  if (cell.flagged) flagged.add(`${r},${c}`);
+  else flagged.delete(`${r},${c}`);
+
+  updateCellDisplay(r, c);
+  updateMinesDisplay();
+}
+
+function revealCell(r, c) {
+  const cell = board[r][c];
+  if (cell.revealed || cell.flagged || cell.mine) return;
+
+  cell.revealed = true;
+  revealed++;
+  updateCellDisplay(r, c);
+
+  if (cell.letter) {
+    const idx = letterCells.findIndex(([lr, lc]) => lr === r && lc === c);
+    if (idx !== -1) {
+      revealedLetters[idx] = cell.letter;
+      renderLetterTiles();
+      flashMsg(`Letter revealed: ${cell.letter}`, 'good');
+    }
+  }
+
+  if (cell.adjacentMines === 0) {
+    for (let dr = -1; dr <= 1; dr++)
+      for (let dc = -1; dc <= 1; dc++) {
+        const nr = r + dr, nc = c + dc;
+        if (nr >= 0 && nr < ROWS && nc >= 0 && nc < COLS) revealCell(nr, nc);
+      }
+  }
+}
+
+function loseLife(reason) {
+  lives--;
+  renderLives();
+
+  if (reason === 'bomb') {
+    flashMsg('BOOM! Bomb detonated.', 'bad');
+  } else {
+    flashMsg('Wrong guess. Life lost.', 'bad');
+  }
+
+  if (lives <= 0) {
+    clearInterval(timerInt);
+    gameOver = true;
+    setTimeout(() => showOverlay(false), 800);
+  }
+}
+
+function renderLives() {
+  const el = document.getElementById('lives-display');
+  el.innerHTML = '';
+  for (let i = 0; i < 3; i++) {
+    const span = document.createElement('span');
+    span.className = 'life-icon' + (i >= lives ? ' lost' : '');
+    span.textContent = '💚';
+    el.appendChild(span);
+  }
+}
+
+function renderLetterTiles() {
+  const el = document.getElementById('letter-tiles');
+  el.innerHTML = '';
+  for (let i = 0; i < puzzle.word.length; i++) {
+    const tile = document.createElement('div');
+    const lc = letterCells[i];
+    const burned = explodedCells.has(`${lc[0]},${lc[1]}`);
+    if (burned) {
+      tile.className = 'letter-tile burned';
+      tile.textContent = '✕';
+    } else if (revealedLetters[i]) {
+      tile.className = 'letter-tile';
+      tile.textContent = revealedLetters[i];
+    } else {
+      tile.className = 'letter-tile empty';
+      tile.textContent = '_';
+    }
+    el.appendChild(tile);
+  }
+}
+
+function updateMinesDisplay() {
+  const remaining = MINE_COUNT - flagged.size;
+  document.getElementById('mines-remaining').textContent = remaining;
+}
+
+function submitGuess() {
+  if (gameOver || gameWon) return;
+  const input = document.getElementById('guess-input');
+  const guess = input.value.trim().toUpperCase();
+  input.value = '';
+
+  if (!guess) return;
+
+  if (guess === puzzle.word) {
+    clearInterval(timerInt);
+    gameWon = true;
+    flashMsg('Correct!', 'good');
+    setTimeout(() => showOverlay(true), 600);
+  } else {
+    loseLife('guess');
+    if (lives > 0) flashMsg(`"${guess}" is wrong. Try again.`, 'bad');
+  }
+}
+
+function checkWinByBoard() {
+  const totalSafe = ROWS * COLS - MINE_COUNT;
+  if (revealed >= totalSafe) {
+    clearInterval(timerInt);
+    gameWon = true;
+    flashMsg('All safe cells cleared!', 'good');
+    setTimeout(() => showOverlay(true), 600);
+  }
+}
+
+function toggleFlagMode() {
+  flagMode = !flagMode;
+  const toggle = document.getElementById('flag-toggle');
+  const label = document.getElementById('flag-label');
+  toggle.classList.toggle('active', flagMode);
+  label.textContent = flagMode ? 'flag mode: on' : 'flag mode: off';
+}
+
+let msgTimeout = null;
+function flashMsg(text, type) {
+  const el = document.getElementById('msg-area');
+  el.textContent = text;
+  el.className = 'msg-area ' + (type || '');
+  clearTimeout(msgTimeout);
+  msgTimeout = setTimeout(() => { el.textContent = ''; el.className = 'msg-area'; }, 3000);
+}
+
+function showOverlay(won) {
+  const container = document.getElementById('overlay-container');
+  const box = document.createElement('div');
+  box.className = 'overlay';
+
+  const word = puzzle.word;
+  const m = Math.floor(seconds / 60), s = seconds % 60;
+  const timeStr = `${m}:${s.toString().padStart(2,'0')}`;
+
+  box.innerHTML = `
+    <div class="overlay-box ${won ? 'win' : 'lose'}">
+      <h2>${won ? 'DEFUSED' : 'DETONATED'}</h2>
+      <div class="word-reveal">${word.split('').join(' ')}</div>
+      <p>${won
+        ? `Excellent work, operative. The word was "${word}".<br>Time: ${timeStr}`
+        : `Mission failed. The word was "${word}".<br>Better luck next time.`
+      }</p>
+      <button onclick="initGame()">new mission</button>
+    </div>`;
+
+  container.appendChild(box);
+}
+
+initGame();
+</script>
