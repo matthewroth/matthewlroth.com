@@ -1,0 +1,15 @@
+{
+  "name": "your-voice",
+  "version": "1.0.0",
+  "description": "Look up a legislative bill, take a stance, and email your representative.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.112.3"
+  }
+}

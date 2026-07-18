@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sS -m 15 \"https://www.govtrack.us/api/v2/bill?congress=118&bill_type=senate_bill&number=4985\")",
+      "Bash(curl -sS -m 15 \"https://whoismyrepresentative.com/getall_mems.php?zip=30303&output=json\")",
+      "Bash(curl -sS -m 15 \"https://api.zippopotam.us/us/30303\")",
+      "Bash(curl -sS -m 20 \"https://geocoding.geo.census.gov/geocoder/geographies/coordinates?x=-84.3888&y=33.7525&benchmark=Public_AR_Current&vintage=Current_Current&layers=54&format=json\")",
+      "Bash(curl -sS -m 30 -o /dev/null -w \"%{http_code} %{size_download}\\\\n\" \"https://unitedstates.github.io/congress-legislators/legislators-current.json\")",
+      "Bash(curl -sS -m 60 \"http://localhost:3000/api/research?bill=S.%204985&level=national&stance=support&zip=30303\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -sS \"http://localhost:3000/api/research?bill=hr+1234&stance=support\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d['bill']['displayNumber'],'|',d['bill']['title'][:60],'| reps:',len\\(d['representatives']\\),'| warnings:',d['warnings']\\)\")",
+      "Bash(curl -sS \"http://localhost:3000/api/research?bill=XYZ&stance=oppose\")",
+      "Bash(curl -sS \"http://localhost:3000/api/research?bill=S.99999\")",
+      "Bash(curl -sS \"http://localhost:3000/api/research?bill=SB+12&level=GA\")",
+      "Bash(curl -sS \"http://localhost:3000/api/research?bill=S.4985&zip=abcde\")",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Bash(curl -sS -m 30 -X POST http://localhost:3000/api/letter -H 'Content-Type: application/json' -d '{\"bill\":{\"displayNumber\":\"S. 4985\",\"title\":\"Test\",\"level\":\"national\",\"congress\":119},\"stance\":\"support\"}')"
+    ]
+  }
+}

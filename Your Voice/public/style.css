@@ -1,0 +1,181 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --ink: #1c2333;
+  --muted: #5b6478;
+  --accent: #1f4e9e;
+  --accent-dark: #163a77;
+  --support: #1e7d46;
+  --oppose: #b3392f;
+  --border: #d8deea;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+header {
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  color: #fff;
+  padding: 2rem 1.5rem 1.75rem;
+  text-align: center;
+}
+header h1 { margin: 0 0 0.25rem; font-size: 2rem; }
+.tagline { margin: 0; opacity: 0.9; }
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.field label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+.req { color: var(--oppose); }
+.hint { font-weight: 400; color: var(--muted); font-size: 0.85rem; }
+.hint-line { color: var(--muted); font-size: 0.9rem; margin: 0.25rem 0 0.5rem; }
+
+input[type="text"], select, textarea {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.stance-toggle { display: flex; gap: 0.75rem; }
+.stance {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+.stance input { position: absolute; opacity: 0; }
+.stance.support:has(input:checked) { border-color: var(--support); background: #e8f5ee; color: var(--support); }
+.stance.oppose:has(input:checked) { border-color: var(--oppose); background: #fbeceb; color: var(--oppose); }
+
+button, .button-link {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+button.primary, #go {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+button.primary:hover, #go:hover { background: var(--accent-dark); }
+button:hover, .button-link:hover { border-color: var(--accent); }
+button:disabled { opacity: 0.6; cursor: wait; }
+
+#status { margin: 1rem 0; color: var(--muted); }
+#error {
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  background: #fbeceb;
+  border: 1px solid #e5b5b0;
+  border-radius: 8px;
+  color: var(--oppose);
+}
+
+#results { margin-top: 1.5rem; }
+#results h2 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+
+.warning {
+  margin: 0.5rem 0;
+  padding: 0.6rem 0.9rem;
+  background: #fdf6e3;
+  border: 1px solid #e8d9a8;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #6b5a1e;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  margin-top: 0.75rem;
+}
+.card h3 { margin: 0 0 0.3rem; }
+.card .meta { color: var(--muted); font-size: 0.9rem; }
+.card a { color: var(--accent); }
+
+.badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: #e7edf8;
+  color: var(--accent-dark);
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.rep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.75rem; }
+.rep-card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 400;
+}
+.rep-card.selected { border-color: var(--accent); background: #eef3fb; }
+.rep-card .rep-name { font-weight: 700; }
+.rep-card .rep-meta { color: var(--muted); font-size: 0.85rem; margin-top: 0.15rem; }
+
+#letter {
+  min-height: 26rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin-top: 0.25rem;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.9rem; }
+
+.hidden { display: none !important; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 1rem;
+}

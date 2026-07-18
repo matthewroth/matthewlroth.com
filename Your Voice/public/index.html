@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Voice — Write Your Representative</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🗣️ Your Voice</h1>
+    <p class="tagline">Look up a bill, take a stance, and send a letter to your representative.</p>
+  </header>
+
+  <main>
+    <form id="research-form" autocomplete="off">
+      <div class="field">
+        <label for="bill">Bill number <span class="req">*</span></label>
+        <input id="bill" name="bill" type="text" placeholder="e.g. S. 4985 or H.R. 1234" required />
+      </div>
+
+      <div class="field">
+        <label for="level">Legislature <span class="hint">(optional — defaults to U.S. Congress)</span></label>
+        <select id="level" name="level">
+          <option value="national" selected>U.S. Congress (national)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Your position <span class="req">*</span></label>
+        <div class="stance-toggle" role="radiogroup" aria-label="Support or oppose">
+          <label class="stance support">
+            <input type="radio" name="stance" value="support" checked />
+            <span>👍 Support</span>
+          </label>
+          <label class="stance oppose">
+            <input type="radio" name="stance" value="oppose" />
+            <span>👎 Oppose</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="zip">Zip code <span class="hint">(optional — used to find your representative)</span></label>
+        <input id="zip" name="zip" type="text" inputmode="numeric" pattern="\d{5}(-\d{4})?" placeholder="e.g. 30303" />
+      </div>
+
+      <div class="field">
+        <label for="reason">Why does this matter to you? <span class="hint">(optional — a personal story or local impact makes the letter far more persuasive)</span></label>
+        <textarea id="reason" name="reason" rows="3" placeholder="e.g. As a small-business owner on Main Street, this bill would directly affect how I…"></textarea>
+      </div>
+
+      <button type="submit" id="go">Research Bill &amp; Draft Letter</button>
+    </form>
+
+    <div id="status" class="hidden"></div>
+    <div id="error" class="hidden"></div>
+
+    <section id="results" class="hidden">
+      <div id="warnings"></div>
+
+      <div class="card" id="bill-card"></div>
+
+      <div id="reps-section" class="hidden">
+        <h2>Choose who to write to</h2>
+        <div id="rep-cards" class="rep-grid"></div>
+      </div>
+
+      <h2>Your letter</h2>
+      <p class="hint-line">Edit freely — personal letters carry the most weight. Replace the bracketed placeholders before sending.</p>
+      <textarea id="letter" spellcheck="true"></textarea>
+
+      <div class="actions">
+        <button id="email-btn" class="primary">✉️ Email this letter</button>
+        <button id="copy-btn">📋 Copy letter</button>
+        <a id="contact-link" class="button-link hidden" target="_blank" rel="noopener">🌐 Official contact form</a>
+      </div>
+      <p id="email-note" class="hint-line hidden"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Bill data: GovTrack &amp; Congress.gov · Representatives: U.S. Census &amp; the congress-legislators project · State data: OpenStates</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
